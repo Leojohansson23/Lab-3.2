@@ -7,7 +7,7 @@ public class Scania extends Truck implements Tilting{
 
     private int minAngle = 0;
     public Scania(){
-        super(2,200,Color.pink, "src.Scania");
+        super(2,300,Color.pink, "src.Scania");
         stopEngine();
         setCanMove(true);
 

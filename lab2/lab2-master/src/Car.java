@@ -1,5 +1,5 @@
 import java.awt.*;
-public class Car implements Moveable {
+public abstract class Car implements Moveable {
 
     public Car(int nrDoors, double enginePower, Color color,String modelName){
         this.nrDoors = nrDoors;
@@ -10,7 +10,7 @@ public class Car implements Moveable {
     }
         private boolean onTruck = false;
         private boolean canMove;
-        private int Direction = 90;
+        private int Direction = 0;
         private double Xpos = 0;
         private double Ypos = 0;
         private final int nrDoors; // Number of doors on the car
@@ -24,6 +24,7 @@ public class Car implements Moveable {
         public int getNrDoors(){return nrDoors;}
         public double setEnginePower(double power){return this.enginePower = power;}
         public int getDirection() {return Direction;}
+        public int setDirection(int direction) {return this.Direction = direction;}
         public double getEnginePower(){
             return enginePower;
         }
@@ -44,8 +45,6 @@ public class Car implements Moveable {
         private double trimFactor;
         public double setTrimFactor(double trim){return this.trimFactor = trim;}
         public double getTrimFactor(){return trimFactor;}
-
-
 
     public double speedFactor(){
         return enginePower * 0.01;

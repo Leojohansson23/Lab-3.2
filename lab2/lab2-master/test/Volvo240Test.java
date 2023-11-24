@@ -26,12 +26,17 @@ public class  Volvo240Test extends TestCase {
     public void testmoveypos(){
         Volvo240 test = new Volvo240();
         test.startEngine();
-        test.move();
         test.turnleft();
         test.move();
-        test.turnright();
         test.move();
-        assertEquals(0.2, test.getYpos());
+        test.move();
+        test.move();
+        assertEquals(3, test.getDirection());
+    }
+
+    @Test
+    public void direction() {
+
     }
 
     @Test

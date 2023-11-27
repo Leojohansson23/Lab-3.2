@@ -24,24 +24,18 @@ public class CarController {
     CarView frame;
     // A list of cars, modify if needed
     ArrayList<Car> cars = new ArrayList<>();
-    ArrayList<Saab95> Saab = new ArrayList<>();
-    ArrayList<Scania> Scania = new ArrayList<>();
 
-    //methods:
 
     public static void main(String[] args) {
-        //CarController <Saab95> Saab95CarController = new CarController<>();
-        //Saab95 mysaab = new Saab95();
-        //Saab95CarController.cars.add(mysaab);
 
 
 
         // Instance of this class
         CarController cc = new CarController();
 
+        cc.cars.add(new Volvo240());
+        cc.cars.add(new Saab95());
         cc.cars.add(new Scania());
-        cc.Saab.add(new Saab95());
-        cc.Scania.add(new Scania());
 
         //Saab95CarController.frame = new CarView("CarSim 1.0",Saab95CarController);
         //Saab95CarController.timer.start();
@@ -86,7 +80,7 @@ public class CarController {
                     }
                 }
 
-                frame.drawPanel.moveit(x, y);
+                frame.drawPanel.moveit(cars.indexOf(car),x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.repaint();
             }
@@ -110,29 +104,42 @@ public class CarController {
         }
     }
 
+
     void turboON(){
-        for (Saab95 car: Saab) {
-            car.setTurboOn();
+        for (Car car: cars) {
+            if(car instanceof Saab95) {
+                ((Saab95) car).setTurboOn();
+            }
         }
     }
     void turboOff(){
-        for (Saab95 car: Saab) {
-            car.setTurboOff();
+        for (Car car: cars) {
+            if(car instanceof Saab95) {
+                ((Saab95) car).setTurboOff();
+            }
         }
     }
     void lowerBed(){
-        for (Scania car: Scania) {
-            car.carrierLower();
+        for (Car car: cars) {
+            if(car instanceof Scania)
+            {
+                ((Scania) car).carrierLower();
+            }
         }
     }
 
 
     void higherBed(){
-        for(Scania car:Scania){
-            car.carrierHigher();
+        for (Car car: cars) {
+            if(car instanceof Scania)
+            {
+                ((Scania) car).carrierHigher();
+            }
         }
 
 
     }
+
+
 
 }

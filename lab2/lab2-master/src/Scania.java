@@ -37,7 +37,7 @@ public class Scania extends Truck implements Tilting{
     @Override
     public void carrierLower() {
         if(getCurrentSpeed() == 0) {
-            if ((getangle() - 10) >= minAngle) {
+            if ((getangle() - 10) > minAngle) {
                 setangle(getangle() - 10);
             }
             else {setangle(minAngle);

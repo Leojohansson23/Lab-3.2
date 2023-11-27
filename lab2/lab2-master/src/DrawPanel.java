@@ -15,15 +15,20 @@ public class DrawPanel extends JPanel{
 
     //BufferedImage Image;
     // To keep track of a singel cars position
-    Point Point = new Point();
+
+    ArrayList<Point> Points = new ArrayList<>();
+
+    Point point0 = new Point();
+    Point point1 = new Point();
+    Point point2 = new Point();
 
 
 
 
     // TODO: Make this genereal for all cars
-    void moveit(int x, int y){
-        Point.x = x;
-        Point.y = y;
+    void moveit(int i, int x, int y){
+        Points.get(i).x = x;
+        Points.get(i).y = y;
     }
 
     // Initializes the panel and reads the images
@@ -42,6 +47,9 @@ public class DrawPanel extends JPanel{
             Images.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Volvo240.jpg")));
             Images.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Saab95.jpg")));
             Images.add(ImageIO.read(DrawPanel.class.getResourceAsStream("pics/Scania.jpg")));
+            Points.add(point0);
+            Points.add(point1);
+            Points.add(point2);
 
         } catch (IOException ex)
         {
@@ -57,7 +65,7 @@ public class DrawPanel extends JPanel{
         super.paintComponent(g);
         int yExtend = 0;
         for(int i = 0; i < Images.size(); i++) {
-            g.drawImage(Images.get(i), Point.x, Point.y + yExtend, null); // see javadoc for more info on the parameters
+            g.drawImage(Images.get(i), Points.get(i).x, Points.get(i).y + yExtend, null); // see javadoc for more info on the parameters
             yExtend += 100;
         }
     }

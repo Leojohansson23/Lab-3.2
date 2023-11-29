@@ -5,7 +5,7 @@ import java.awt.*;
 public class Saab95 extends Car{
 
     public Saab95(){
-        super(2, 125, Color.red, "src.Saab95");
+        super(2, 100, Color.red, "src.Saab95");
         turboOn = false;
         stopEngine();
         setCanMove(true);

@@ -15,7 +15,6 @@ public class CarController {
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
     private final int delay = 50;
-    private boolean touchEdge = false;
     // The timer is started with an listener (see below) that executes the statements
     // each step between delays.
     private Timer timer = new Timer(delay, new TimerListener());
@@ -138,6 +137,22 @@ public class CarController {
         }
 
 
+    }
+
+    void stopAllCars(){
+        for (Car car: cars){
+            while (car.getCurrentSpeed() > 0){
+                car.brake(1);
+            }
+        }
+    }
+
+    void startAllCars(){
+        for (Car car: cars){
+            while (car.getCurrentSpeed() < 0.1){
+                car.gas(0.5);
+            }
+        }
     }
 
 
